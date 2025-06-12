@@ -98,14 +98,17 @@ body {
 
 @keyframes floatUp {
     0% {
-        transform: translateY(0) rotate(-45deg);
+        /* Começa invisível, abaixo da tela (100vh empurra para baixo 100% da altura da viewport) */
+        transform: translateY(100vh) rotate(-45deg);
         opacity: 0;
     }
-    20% {
+    10% {
+        /* Torna-se visível logo no início da subida */
         opacity: 1;
     }
     100% {
-        transform: translateY(-500px) rotate(-45deg);
+        /* Sobe e termina invisível, acima da tela (-50vh empurra para cima 50% da altura da viewport) */
+        transform: translateY(-50vh) rotate(-45deg);
         opacity: 0;
     }
 }
