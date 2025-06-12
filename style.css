@@ -1,0 +1,189 @@
+body {
+    display: flex;
+    flex-direction: column; /* Faz com que os itens fiquem um abaixo do outro */
+    justify-content: flex-start; /* Alinha os itens ao topo */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    position: relative;
+    padding-bottom: 50px; /* Espaço para o final da página */
+    padding-top: 20px; /* Espaço no topo */
+    box-sizing: border-box; /* Garante que padding não adicione largura extra */
+}
+
+#surpriseContainer {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px 20px; /* Ajuste o padding horizontal para telas menores */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 90%; /* Ocupa 90% da largura do pai */
+    max-width: 400px; /* Limita a largura máxima para não ficar muito largo em desktops */
+    box-sizing: border-box;
+}
+
+#surpriseButton {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#surpriseButton:hover {
+    background-color: #ff4f9e;
+}
+
+#surpriseMessage {
+    font-size: 2em;
+    color: #d81b60;
+    margin-top: 20px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    padding: 0 10px; /* Adiciona um pequeno padding para texto não grudar nas bordas */
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+#heartContainer {
+    position: fixed; /* Mudei de absolute para fixed para que os corações flutuem pela viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1; /* Garante que os corações fiquem acima de outros elementos se necessário */
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff69b4;
+    transform: rotate(-45deg);
+    animation: floatUp 3s ease-out forwards;
+    opacity: 0;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 15px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* --- Estilos para a Linha do Tempo --- */
+#timelineContent {
+    background-color: #ffffff;
+    padding: 30px 20px; /* Ajuste o padding horizontal */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 90%; /* Ocupa 90% da largura do pai */
+    max-width: 600px; /* Limita a largura máxima para a linha do tempo */
+    text-align: left;
+    transition: opacity 1s ease-in-out;
+    box-sizing: border-box;
+}
+
+#timelineContent h2 {
+    text-align: center;
+    color: #d81b60;
+    margin-bottom: 30px;
+    font-size: 1.8em; /* Ajusta o tamanho da fonte para celular */
+}
+
+.timeline-event {
+    border-left: 3px solid #ff69b4;
+    padding-left: 20px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.timeline-event h3 {
+    color: #4a4a4a;
+    margin-top: 0;
+    font-size: 1.3em; /* Ajusta o tamanho da fonte para celular */
+}
+
+.timeline-event p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95em; /* Leve ajuste para melhor leitura */
+}
+
+.event-media {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.event-media video {
+    max-height: 300px; /* Limita a altura do vídeo para telas menores */
+    width: 100%; /* Garante que o vídeo ocupe a largura total disponível */
+}
+
+/* Opcional: Media queries para ajustar em telas maiores */
+@media (min-width: 768px) {
+    #surpriseContainer {
+        max-width: 500px; /* Aumenta a largura em telas maiores */
+    }
+
+    #timelineContent {
+        max-width: 700px; /* Aumenta a largura em telas maiores */
+    }
+}
