@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const surpriseButton = document.getElementById('surpriseButton');
     const surpriseMessage = document.getElementById('surpriseMessage');
     const heartContainer = document.getElementById('heartContainer');
-    const timelineContent = document.getElementById('timelineContent'); // Ainda precisamos pegar este elemento
+    const timelineContent = document.getElementById('timelineContent');
 
     surpriseButton.addEventListener('click', () => {
         surpriseMessage.classList.remove('hidden');
         surpriseButton.style.display = 'none';
         createHearts();
-        
+
         // Agora, apenas removemos a classe 'hidden' da linha do tempo
-        timelineContent.classList.remove('hidden'); 
+        timelineContent.classList.remove('hidden');
     });
 
     function createHearts() {
@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // A função displayTimelineEvents() e o array timelineEvents NÃO SÃO MAIS NECESSÁRIOS AQUI
-    // Porque o conteúdo já está no HTML
+    // Código removido:
+    // - O array timelineEvents
+    // - A função displayTimelineEvents()
+    // - A função setupVideoInteractivity() e sua chamada
+
 });
